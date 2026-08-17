@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "LinkedIn AutoConnect",
+  "description": "Automatically clicks all 'Connect' buttons available on LinkedIn 'Search People' and 'People You May Know' pages.",
+  "version": "2.1.3",
+  "action": {
+    "default_popup": "pages/src/popup.html"
+  },
+  "options_ui": {
+    "page": "pages/src/options.html",
+    "open_in_tab": true
+  },
+  "icons": {
+    "16": "images/icon16.png",
+    "128": "images/icon128.png"
+  },
+  "permissions": [
+    "scripting",
+    "storage",
+    "alarms",
+    "debugger",
+    "clipboardWrite"
+  ],
+  "background": {
+    "service_worker": "sw/service-worker.js"
+  },
+  "host_permissions": [
+    "https://*.linkedin.com/*",
+    "https://confido-key.lovable.app/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.linkedin.com/search/results/people/*",
+        "https://*.linkedin.com/mynetwork/*",
+        "https://*.linkedin.com/search/results/content/*",
+        "https://*.linkedin.com/feed/*",
+        "https://*.linkedin.com/messaging/*"
+      ],
+      "js": [
+        "tab/tab.js"
+      ]
+    }
+  ]
+}
