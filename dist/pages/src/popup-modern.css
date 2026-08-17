@@ -1,0 +1,184 @@
+/* Visual polish for the popup shell. Component behavior remains in the bundled app. */
+:root {
+  color-scheme: light;
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #eef3f9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 420px;
+  min-height: 560px;
+  margin: 0;
+  background:
+    radial-gradient(circle at 92% 3%, rgba(68, 144, 238, 0.16), transparent 28%),
+    linear-gradient(180deg, #f8fbff 0%, #edf3f9 100%);
+}
+
+body {
+  color: #172033;
+  -webkit-font-smoothing: antialiased;
+}
+
+body > div {
+  min-height: 560px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: 0 18px 50px rgba(19, 38, 70, 0.18);
+}
+
+/* Header */
+body > div > .chakra-flex:first-child {
+  position: relative;
+  min-height: 64px;
+  padding-inline: 18px;
+  background:
+    radial-gradient(circle at 15% 0%, rgba(55, 133, 239, 0.32), transparent 42%),
+    linear-gradient(135deg, #172b4b 0%, #0c182c 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 24px rgba(10, 31, 61, 0.2);
+}
+
+body > div > .chakra-flex:first-child > svg:first-child {
+  width: 34px;
+  height: 34px;
+  padding: 7px;
+  color: white;
+  background: linear-gradient(145deg, #3185ed, #0865cf);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 10px;
+  filter: drop-shadow(0 5px 10px rgba(0, 78, 180, 0.35));
+}
+
+body > div > .chakra-flex:first-child .chakra-heading {
+  letter-spacing: -0.015em;
+}
+
+/* Navigation */
+.chakra-tabs__tablist {
+  gap: 4px;
+  padding: 7px 10px 0 !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  box-shadow: 0 5px 18px rgba(31, 55, 88, 0.06);
+}
+
+.chakra-tabs__tab {
+  margin-bottom: 7px;
+  border-radius: 8px !important;
+  transition: color 160ms ease, background 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.chakra-tabs__tab:hover {
+  color: #0a66c2 !important;
+  background: #f0f6ff;
+}
+
+.chakra-tabs__tab[aria-selected="true"] {
+  background: #eaf3ff;
+  box-shadow: inset 0 0 0 1px rgba(10, 102, 194, 0.1) !important;
+  transform: translateY(-1px);
+}
+
+.chakra-tabs__tab-panels {
+  background: transparent !important;
+}
+
+/* Content surface and section rhythm */
+.chakra-tabs__tabpanel {
+  padding: 18px !important;
+}
+
+.chakra-tabs__tabpanel > .chakra-stack > .chakra-box,
+.chakra-tabs__tabpanel > .chakra-stack > .chakra-form-control {
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(190, 203, 220, 0.7);
+  border-radius: 12px;
+  box-shadow: 0 5px 16px rgba(23, 48, 81, 0.055);
+}
+
+.chakra-tabs__tabpanel .chakra-divider {
+  border-color: #dce5f0;
+}
+
+/* Controls */
+.chakra-button {
+  min-height: 38px;
+  border-radius: 9px !important;
+  font-weight: 650 !important;
+  letter-spacing: -0.005em;
+  transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease !important;
+}
+
+.chakra-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 7px 16px rgba(24, 73, 132, 0.14);
+}
+
+.chakra-button[data-theme="blue"],
+.chakra-button.css-1e2wjv0 {
+  background: linear-gradient(135deg, #0b74de, #0759bc);
+}
+
+textarea,
+input,
+select,
+.chakra-numberinput__field {
+  border-color: #cbd8e8 !important;
+  border-radius: 9px !important;
+  background: #fbfdff !important;
+  transition: border-color 150ms ease, box-shadow 150ms ease !important;
+}
+
+textarea:focus,
+input:focus,
+select:focus {
+  border-color: #2b7fdb !important;
+  box-shadow: 0 0 0 3px rgba(43, 127, 219, 0.13) !important;
+}
+
+/* Metric tiles */
+.chakra-tabs__tabpanel [style*="grid-template-columns"] > .chakra-box {
+  position: relative;
+  overflow: hidden;
+  border-color: #d9e3ef;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #ffffff, #f5f9fd);
+  box-shadow: 0 3px 10px rgba(28, 57, 94, 0.06);
+}
+
+.chakra-tabs__tabpanel [style*="grid-template-columns"] > .chakra-box::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  content: "";
+  background: linear-gradient(#4c9aef, #0a66c2);
+  opacity: 0.72;
+}
+
+.chakra-badge {
+  border: 1px solid currentColor;
+  letter-spacing: 0.01em;
+}
+
+/* Approval and confirmation dialogs */
+.chakra-modal__content {
+  border: 1px solid #d6e0eb;
+  border-radius: 16px !important;
+  box-shadow: 0 24px 70px rgba(14, 32, 58, 0.24) !important;
+}
+
+.chakra-modal__header {
+  border-bottom: 1px solid #e5ebf2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
